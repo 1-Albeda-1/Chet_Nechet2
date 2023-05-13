@@ -25,30 +25,42 @@ class MainActivity : AppCompatActivity() {
 
         binding.FrameUser.isVisible = true
         binding.FrameComputer.isVisible = true
-        val btnCl = true
+
 
         binding.btnStart.setOnClickListener {
             binding.btnStart.isVisible = false
             binding.btnRepeat.isVisible = true
-            binding.tvCompWinners.isVisible = true
-            binding.tvUserWinners.isVisible = true
+            val btnCl = true
+            binding.txtCompCounter.isVisible = true
+            binding.txtUserCounter.isVisible = true
             dataModel.messageForComputerFragment.value = btnCl.toString()
             dataModel.messageForUserFragment.value = btnCl.toString()
             binding.btnClose.isVisible = true
-
             dataModel.messageForMainActivityFromComputerFragmentTrueCounter.observe(this) {
                 val trueCounterComp = it
-                binding.tvCompWinners.text = trueCounterComp
+                binding.txtCompCounter.text = trueCounterComp
             }
-
             dataModel.messageForMainActivityFromUserFragmentTrueCounter.observe(this) {
                 val trueCounterUser = it
-                binding.tvUserWinners.text = trueCounterUser
+                binding.txtUserCounter.text = trueCounterUser
             }
         }
         binding.btnRepeat.setOnClickListener{
-            val intent = Intent(this, this::class.java)
-            startActivity(intent)
+
+            binding.btnRepeat.isVisible = false
+            binding.btnClose.isVisible = false
+            binding.btnStart.isVisible = true
+            binding.btnStart.isEnabled = false
+            dataModel.messageForMainActivityFromComputerFragmentTrueCounter.value = binding.txtCompCounter.text.toString()
+            dataModel.messageForMainActivityFromUserFragmentTrueCounter.value = binding.txtUserCounter.text.toString()
+            val btnClk = false
+            binding.txtCompCounter.isVisible = false
+            binding.txtUserCounter.isVisible = false
+
+            dataModel.messageForComputerFragment.value = btnClk.toString()
+            dataModel.messageForUserFragment.value = btnClk.toString()
+            openFrag(ComputerFragment.newInstance(), R.id.FrameComputer)
+            openFrag(UserFragment.newInstance(), R.id.FrameUser)
         }
 
         binding.btnClose.setOnClickListener{

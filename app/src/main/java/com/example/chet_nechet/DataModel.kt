@@ -10,9 +10,6 @@ open class DataModel : ViewModel() {
     val messageForUserFragment: MutableLiveData<String> by lazy {
         MutableLiveData<String>()
     }
-    val messageForMainActivityFromComputerFragment: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
-    }
     val messageForMainActivityFromUserFragment: MutableLiveData<String> by lazy {
         MutableLiveData<String>()
     }

@@ -22,8 +22,6 @@ class UserFragment : Fragment() {
         binding = FragmentUserBinding.inflate(inflater)
 
         var trueCounter = 0
-        var falseCounter = 0
-        var allCounter = 0
         val rbClick = true
         rnd()
         dataModel.messageForUserFragment.observe(activity as LifecycleOwner){
@@ -34,22 +32,23 @@ class UserFragment : Fragment() {
                 binding.imageViewU.isVisible = true
             }
         }
+        dataModel.messageForMainActivityFromUserFragmentTrueCounter.observe(activity as LifecycleOwner) {
+            trueCounter = it.toString().toInt()
+        }
 
         binding.radioButton3U.setOnClickListener{
             dataModel.messageForMainActivityFromUserFragment.value = rbClick.toString()
             binding.radioButton3U.isEnabled = false
             binding.radioButton4U.isEnabled = false
-            ++allCounter
             if (binding.textViewSumU.text.toString().toInt() % 2 == 0 && binding.radioButton3U.isChecked)
             {
                 binding.imageViewU.setImageResource(R.drawable.resource_true)
-                ++trueCounter
+                trueCounter++
                 dataModel.messageForMainActivityFromUserFragmentTrueCounter.value = trueCounter.toString()
             }
             else
             {
                 binding.imageViewU.setImageResource(R.drawable.resource_false)
-                ++falseCounter
                 dataModel.messageForMainActivityFromUserFragmentTrueCounter.value = trueCounter.toString()
             }
         }
@@ -59,17 +58,15 @@ class UserFragment : Fragment() {
             dataModel.messageForMainActivityFromUserFragment.value = rbClick.toString()
             binding.radioButton3U.isEnabled = false
             binding.radioButton4U.isEnabled = false
-            ++allCounter
             if (binding.textViewSumU.text.toString().toInt() % 2 == 1 && binding.radioButton4U.isChecked)
             {
                 binding.imageViewU.setImageResource(R.drawable.resource_true)
-                ++trueCounter
+                trueCounter++
                 dataModel.messageForMainActivityFromUserFragmentTrueCounter.value = trueCounter.toString()
             }
             else
             {
                 binding.imageViewU.setImageResource(R.drawable.resource_false)
-                ++falseCounter
                 dataModel.messageForMainActivityFromUserFragmentTrueCounter.value = trueCounter.toString()
             }
         }

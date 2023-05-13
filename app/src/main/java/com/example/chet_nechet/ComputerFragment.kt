@@ -22,7 +22,6 @@ class ComputerFragment : Fragment() {
         binding = FragmentComputerBinding.inflate(inflater)
 
         var trueCounter = 0
-        var falseCounter = 0
 
         rnd()
         dataModel.messageForComputerFragment.observe(activity as LifecycleOwner){
@@ -33,6 +32,9 @@ class ComputerFragment : Fragment() {
                 binding.imageView.isVisible = true
             }
         }
+        dataModel.messageForMainActivityFromComputerFragmentTrueCounter.observe(activity as LifecycleOwner) {
+            trueCounter = it.toString().toInt()
+        }
 
 
         when ((0..1).random()){
@@ -42,14 +44,13 @@ class ComputerFragment : Fragment() {
                 if (binding.textViewSum.text.toString().toInt() % 2 == 0 && binding.radioButton3.isChecked)
                 {
                     binding.imageView.setImageResource(R.drawable.resource_true)
-                    ++trueCounter
+                    trueCounter++
                     dataModel.messageForMainActivityFromComputerFragmentTrueCounter.value = trueCounter.toString()
                 }
                 else
                 {
                     binding.imageView.setImageResource(R.drawable.resource_false)
-                    ++falseCounter
-                    dataModel.messageForMainActivityFromComputerFragmentTrueCounter.value = falseCounter.toString()
+                    dataModel.messageForMainActivityFromComputerFragmentTrueCounter.value = trueCounter.toString()
                 }
             }
             1 -> {
@@ -59,14 +60,13 @@ class ComputerFragment : Fragment() {
                 if (binding.textViewSum.text.toString().toInt() % 2 == 1 && binding.radioButton4.isChecked)
                 {
                     binding.imageView.setImageResource(R.drawable.resource_true)
-                    ++trueCounter
+                    trueCounter++
                     dataModel.messageForMainActivityFromComputerFragmentTrueCounter.value = trueCounter.toString()
                 }
                 else
                 {
                     binding.imageView.setImageResource(R.drawable.resource_false)
-                    ++falseCounter
-                    dataModel.messageForMainActivityFromComputerFragmentTrueCounter.value = falseCounter.toString()
+                    dataModel.messageForMainActivityFromComputerFragmentTrueCounter.value = trueCounter.toString()
                 }
             }
         }

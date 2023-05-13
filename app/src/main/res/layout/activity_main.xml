@@ -6,11 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/txtUserCounter"
+        android:layout_width="30dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="349dp"
+        android:layout_marginTop="169dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="21dp"
+        android:text="0"
+        android:textSize="34sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/FrameUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FrameComputer" />
+
     <Button
         android:id="@+id/btnRepeat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="115dp"
         android:layout_marginTop="46dp"
         android:layout_marginEnd="158dp"
         android:layout_marginBottom="11dp"
@@ -18,8 +33,6 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/btnClose"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/tvCompWinners"
         app:layout_constraintTop_toBottomOf="@+id/FrameComputer" />
 
     <Button
@@ -41,32 +54,14 @@
         android:id="@+id/FrameComputer"
         android:layout_width="414dp"
         android:layout_height="236dp"
-        android:layout_marginBottom="28dp"
         android:background="#FFFFFF"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/tvCompWinners"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
     </FrameLayout>
-
-    <TextView
-        android:id="@+id/tvCompWinners"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="212dp"
-        android:text="i"
-        android:textSize="34sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/btnStart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.104"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.369" />
 
     <Button
         android:id="@+id/btnStart"
@@ -79,32 +74,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvUserWinners"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="i"
-        android:textSize="34sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/FrameUser"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.851"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.596" />
-
     <FrameLayout
         android:id="@+id/FrameUser"
         android:layout_width="411dp"
         android:layout_height="253dp"
         android:layout_marginStart="3dp"
-        android:layout_marginTop="24dp"
         android:background="#FFFFFF"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvUserWinners">
+        app:layout_constraintStart_toStartOf="parent">
 
     </FrameLayout>
+
+    <TextView
+        android:id="@+id/txtCompCounter"
+        android:layout_width="30dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="113dp"
+        android:layout_marginBottom="172dp"
+        android:text="0"
+        android:textSize="34sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/FrameUser"
+        app:layout_constraintEnd_toStartOf="@+id/btnRepeat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FrameComputer" />
 </androidx.constraintlayout.widget.ConstraintLayout>
